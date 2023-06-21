@@ -1,0 +1,14 @@
+package com.sh.mvc.member.model.dao;
+
+import java.util.Properties;
+
+public class MemberDao {
+	private Properties prop = new Properties();
+	
+	public MemberDao() {
+		// src/main/resources/sql/member/member-query.properties 작성
+		// build/classes/sql/member/member-query.properties 톰캣용 읽기파일
+		String filename = MemberDao.class.getResource("")
+	}
+
+}

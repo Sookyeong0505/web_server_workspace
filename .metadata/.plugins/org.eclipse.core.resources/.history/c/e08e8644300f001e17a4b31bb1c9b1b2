@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Hello web</title>
+</head>
+<body>
+	<h1>Hello web</h1>
+	<p>우리의 첫번째 웹프로젝트</p>
+	
+	<h2>Servlet</h2>
+	<ul>
+		<li><a href="/web/servlet/testPerson1.html">개인취향검사 GET</a></li>
+		<li><a href="/web/servlet/testPerson2.html">개인취향검사 POST</a></li>
+		<li><a href="/web/servlet/testPerson3.html">개인취향검사 Servlet|JSP</a></li>
+		<li><a href="/web/servletLifeCycle.do">Servlet Lifecycle</a></li>
+	</ul>
+	
+	<h2>JSP Basics</h2>
+	<ul>
+		<li><a href="/web/jsp/basics.jsp">JSP Basics</a></li>
+	</ul>
+</body>
+</html>

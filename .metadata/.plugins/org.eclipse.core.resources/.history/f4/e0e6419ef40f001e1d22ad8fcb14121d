@@ -1,0 +1,16 @@
+package com.sh.mvc.member.model.vo;
+
+public class Member {
+	private String memberId;
+	private String password;
+	private String name;
+	private String memberRole;
+	private String gender;
+	private String birthday;
+	private String email;
+	private String phone;
+	private String hobby;
+	private int point;
+	private TimeStamp enrollDate;
+
+}

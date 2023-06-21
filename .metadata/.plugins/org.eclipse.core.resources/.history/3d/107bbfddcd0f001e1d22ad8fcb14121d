@@ -1,0 +1,64 @@
+<%@page import="java.util.List"%>
+<%@page import="java.util.Arrays"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<% 
+	List<String> items = Arrays.asList("수영복", "수경", "수영모");
+	int[] nums = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
+%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>반복처리</title>
+<style type="text/css">
+	table { border: 1px solid black; border-collapse: collapse; margin: 20px 0; }
+</style>
+</head>
+<body>
+	<h1>반복처리</h1>
+	
+	<h2>준비물</h2>
+	<ul>
+<%
+	for(String item : items) {
+%>	
+	<li><%= item %></li>	
+<%
+	}
+%>	
+	</ul>
+	
+	<h2>숫자</h2>
+<% 
+	for(int num : nums){
+%>	
+	<!-- for문 동안 반복된 html 구문 -->
+	<mark><%= num %></mark>
+<% 
+	}
+%>	
+	
+	<h2>@실습문제 - 주문정보</h2>
+	<%-- 주문내역없이 페이지에 접근하는 경우 테이블이 노출되어서는 안된다. --%>
+	<button onclick="location.href='/web/jsp/loop.jsp?no=123&prod=아이패드&option=빨강&option=256GB';">주문1</button>
+	<button onclick="location.href='/web/jsp/loop.jsp?no=456&prod=설렁탕&option=다대기많이&option=곱빼기&option=당면사리';">주문2</button>
+	
+	<table>
+		<tr>
+			<th>주문번호</th>
+			<td></td>
+		</tr>
+		<tr>
+			<th>상품명</th>
+			<td></td>
+		</tr>
+		<tr>
+			<th>옵션</th>
+			<td></td>
+		</tr>
+	</table>
+
+
+</body>
+</html>

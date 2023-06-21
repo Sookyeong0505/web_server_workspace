@@ -1,0 +1,30 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<%
+	String mode = request.getParameter("mode");
+	System.out.println("mode = " + mode);
+%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>분기처리</title>
+</head>
+<body>
+<%
+	if("en".equals(mode)){
+		// 영어모드
+		out.println("<h1>Hello</h1>");
+		
+	} else {
+		// 한글모드 (기본값)
+		out.println("<h1>안녕</h1>");
+	}
+%>
+
+	<div>
+		<button onclick="location.href='/web/jsp/condition.jsp?mode=en';">영어</button>
+		<button onclick="location.href='/web/jsp/condition.jsp?mode=o';">한글</button>
+	</div>
+</body>
+</html>

@@ -1,0 +1,9 @@
+@charset "UTF-8";
+
+.name {
+	background-color: yellow;
+	
+}
+.color {
+	background-color: lime;
+}

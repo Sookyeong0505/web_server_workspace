@@ -1,0 +1,30 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<%@ page import="java.util.Arrays" %> <%-- 페이지 지시어 --%>
+<% 
+	// jsp의 scriptitle - java 작성가능
+	/* 여러줄 주석 */
+	// jsp 내부 어디든지 여러개 작성 가능
+	// request:HttpServletRequest, response:HttpServletResponse 객체를 선언없이 사용 가능
+	String name = request.getParameter("name");
+	String color = request.getParameter("color");
+	String animal = request.getParameter("animal");
+	String[] foods = request.getParameterValues("food");
+	System.out.println("name@jsp = "+ name);
+	System.out.println("color@jsp = "+ color);
+	System.out.println("animal@jsp = "+ animal);
+	if(foods != null)
+		System.out.println("food@jsp = "+ Arrays.toString(foods));
+
+%>
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+
+</body>
+</html>

@@ -1,0 +1,12 @@
+package com.sh.web.servlet;
+
+import javax.servlet.http.HttpServlet;
+
+/**
+ * GET / web/ servletLifeCycle.do
+ * 
+ * 
+ * */
+public class ServeletLifeCycle extends HttpServlet {
+
+}

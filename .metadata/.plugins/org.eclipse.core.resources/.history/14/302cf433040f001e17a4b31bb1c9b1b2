@@ -1,0 +1,23 @@
+package com.sh.web.servlet;
+
+import java.io.IOException;
+import java.io.PrintWriter;
+
+import javax.servlet.ServletException;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+public class TestPersonServlet2 extends HttpServlet {
+	
+	@Override
+	protected void doGet(HttpServletRequest req, HttpServletResponse resp) 
+			throws ServletException, IOException {
+
+		// 1. 사용자 입력값 처리
+		
+		
+		// 2. 응답 html 처리
+	}
+
+}

@@ -1,0 +1,5 @@
+package com.sh.mvc.common;
+
+public class jdbcTemplate {
+
+}

@@ -1,0 +1,34 @@
+<%@page import="java.util.List"%>
+<%@page import="java.util.Arrays"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<% 
+	List<String> items = Arrays.asList("수영복", "수경", "수영모");
+	int[] nums = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
+%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>반복처리</title>
+</head>
+<body>
+	<h1>반복처리</h1>
+	
+	<h2>준비물</h2>
+	<ul>
+<%
+	for(String item : items) {
+%>	
+	<li><%= item %></li>	
+<%
+	}
+%>	
+	</ul>
+	
+	<h2>숫자</h2>
+	
+	
+
+</body>
+</html>

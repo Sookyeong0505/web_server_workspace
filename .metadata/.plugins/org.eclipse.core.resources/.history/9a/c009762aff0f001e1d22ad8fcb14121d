@@ -1,0 +1,29 @@
+package com.sh.mvc.member.model.service;
+
+import static com.sh.mvc.common.JdbcTemplate.*;
+
+import java.sql.Connection;
+
+import com.sh.mvc.member.model.dao.MemberDao;
+
+/**
+ * DQL (select ...)
+ * 1. Connection 생성
+ * 2. PreparedStatment 생성 및 ? 값대입
+ * 3. 실행 및 ResultSet 처리
+ * 4. 자원반납
+ * 
+ * DML (update, delete ...)
+ * 1. Connection 생성
+ * 2. PreparedStatment 생성 및 ? 값대입
+ * 3. 실행 및 int 반환
+ * 4. 트랜잭션 (commit/rollback)
+ * 5. 자원반납
+ *
+ */
+public Member findByID(String memberId) {
+    Connection conn = getConnection();
+    Member member = memberDao.findById(conn, memberId);
+    close(conn);
+    return member;
+ }

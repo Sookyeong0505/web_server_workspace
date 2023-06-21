@@ -1,0 +1,55 @@
+package com.sh.mvc.common.test;
+
+import static com.sh.mvc.common.JdbcTemplate.*;
+import java.io.IOException;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+/**
+ * Servlet implementation class JdbcConnection
+ */
+@WebServlet("/test/jdbc")
+public class JdbcConnectionTestServlet extends HttpServlet {
+	private static final long serialVersionUID = 1L;
+       
+	// db 접속테스트
+	// mvc 패턴
+	// controller - service - dao ----> db
+	// 여기서 controller 역할을 하는 것이 Servlet이다.
+	
+	// DQL 버전
+	// 1. 드라이버 클래스 등록 (JdbcTemplate 안에서 진행)
+	// 2. Connection 객체 생성
+	Connection conn = getConnection();
+	// 3. PreparedStatement 객체 생성 (이때 query 전달) 및 미완성쿼리 값 대입
+	String sql = "select * from member";
+	try (PreparedStatement pstmt = conn.prepareStatement(sql)){
+		
+	} catch (SQLException e) {
+		
+	}
+	// 4. 실행 및 ResultSet 처리 (반복문 통해)
+	// 5. 자원반납
+	
+	
+	
+	
+	
+	
+
+	/**
+	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
+	 */
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		// TODO Auto-generated method stub
+		response.getWriter().append("Served at: ").append(request.getContextPath());
+	}
+
+
+}

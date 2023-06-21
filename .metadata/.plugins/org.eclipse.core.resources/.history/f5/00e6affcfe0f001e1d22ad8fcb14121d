@@ -1,0 +1,5 @@
+package com.sh.mvc.member.model.exception;
+
+public class MemberException extends RuntimeException {
+
+}

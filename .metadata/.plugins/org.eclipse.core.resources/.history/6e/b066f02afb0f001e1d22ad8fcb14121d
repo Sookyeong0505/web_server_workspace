@@ -1,0 +1,8 @@
+package com.sh.mvc.member.model.service;
+
+import com.sh.mvc.member.model.dao.MemberDao;
+
+public class MemberService {
+	MemberDao memberDao = new MemberDao();
+
+}

@@ -1,0 +1,20 @@
+package com.sh.mvc.member.model.vo;
+
+import java.sql.Timestamp;
+
+public class Member {
+	private String memberId;
+	private String password;
+	private String name;
+	private MemberRole memberRole; 	// U, A
+	private Gender gender; 			// M, F
+	private String birthday;
+	private String email;
+	private String phone;
+	private String hobby;
+	private int point;
+	private Timestamp enrollDate;
+
+	
+	
+}

@@ -1,0 +1,19 @@
+<%@page import="java.util.List"%>
+<%@page import="java.util.Arrays"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<% 
+	List<String> items = Arrays.asList("수영복", "수경", "수영모");
+%>
+<% %>
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>반복처리</title>
+</head>
+<body>
+
+</body>
+</html>

@@ -1,0 +1,44 @@
+package com.sh.mvc.member.model.dao;
+
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.util.Properties;
+
+public class MemberDao {
+	private Properties prop = new Properties();
+	
+	public MemberDao() {
+		// src/main/resources/sql/member/member-query.properties 작성
+		// build/classes/sql/member/member-query.properties 톰캣용 읽기파일
+//		String filename = MemberDao.class.getResource("/sql/member/member-query.properties"); url 반환
+		String filename = MemberDao.class.getResource("/sql/member/member-query.properties").getPath();
+		
+		try {
+			prop.load(new FileReader(filename));
+			System.out.println("prop@dao = " + prop);
+			
+		} catch (FileNotFoundException e) {
+			e.printStackTrace();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		
+	}
+	
+	public Member findById(Connection conn, Strin gmemberId) {
+		String sql = prop.getProperty("findById");
+		Member member = null;
+		try (PreparedStatement pstmt = conn.prepareStatement(sql)) {
+			pstmt.setString(1, memberId);
+			
+			
+		} catch(Exception e) {
+			
+		}
+	}
+	
+
+}
