@@ -1,0 +1,102 @@
+package com.sh.mvc.member.model.dao;
+
+import java.io.FileReader;
+import java.io.IOException;
+import java.sql.Connection;
+import java.sql.Date;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Timestamp;
+import java.util.Properties;
+
+import com.sh.mvc.member.model.exception.MemberException;
+import com.sh.mvc.member.model.vo.Gender;
+import com.sh.mvc.member.model.vo.Member;
+import com.sh.mvc.member.model.vo.MemberRole;
+
+public class MemberDao {
+   private Properties prop= new Properties();
+   
+   public MemberDao() {
+      // src/main/resources/sql/member/member-query.properties 작성
+      // build/classes/sql/member/member-query.properties 톰캣용 읽기파일
+      String filename =
+            MemberDao.class.getResource("/sql/member/member-query.properties").getPath();
+      try {
+         prop.load(new FileReader(filename));
+         System.out.println("prop@dao = " + prop);
+      } catch (IOException e) {
+         e.printStackTrace();
+      }
+         
+   }
+
+   public Member findById(Connection conn, String memberId) {
+      String sql = prop.getProperty("findById");
+      Member member = null;
+      try(PreparedStatement pstmt = conn.prepareStatement(sql)){
+         pstmt.setString(1, memberId);
+         try(ResultSet rset = pstmt.executeQuery()){
+            while(rset.next()) {
+               member = handleMemberResultSet(rset);
+            }
+         }
+      } catch (SQLException e) {
+         throw new MemberException(e);
+      }
+      return member;
+   }
+
+   private Member handleMemberResultSet(ResultSet rset) throws SQLException {
+      
+      String memberId = rset.getString("member_id");
+      String password = rset.getString("password");
+      String name= rset.getString("name");
+      MemberRole memberRole = MemberRole.valueOf(rset.getString("member_role"));//not null
+      String _gender = rset.getString("gender");
+      Gender gender = _gender != null ? Gender.valueOf(_gender) : null; //nullable
+      Date birthday = rset.getDate("birthday");
+      String email = rset.getString("email");
+      String phone = rset.getString("phone");
+      String hobby = rset.getString("hobby");
+      int point = rset.getInt("point");
+      Timestamp enrollDate = rset.getTimestamp("enroll_date");
+      
+      return new Member(memberId,password,name,memberRole,gender,birthday,email,phone,hobby,point,enrollDate);
+   }
+
+public int insertMember(Connection conn, Member newMember) {
+	String sql = prop.getProperty("enroll");
+	// insert into member values(?, ?, ...)
+	// insert into member values(?, ?, ?, default, ?, ?, ?, ?, ?, default. default)
+	
+	try(PreparedStatement pstmt = conn.prepareStatement(sql)){
+        
+		// memberId,password,name,memberRole,gender,birthday,email,phone,hobby,point,enrollDate
+		// memberRole, point는 default
+		pstmt.setString(1, newMember.getMemberId());
+        pstmt.setString(2, newMember.getPassword());
+        pstmt.setString(3, newMember.getName());
+        pstmt.setObject(4, newMember.getMemberRole());
+        pstmt.setObject(5, newMember.getGender());
+        pstmt.setDate(6, newMember.getBirthday());
+        pstmt.setString(7, newMember.getEmail());
+        pstmt.setString(8, newMember.getPhone());
+        pstmt.setString(9, newMember.getHobby());
+        // point
+        // enrollDate 
+        
+        try(ResultSet rset = pstmt.executeQuery()){
+           while(rset.next()) {
+              newMember = handleMemberResultSet(rset);
+           }
+        }
+     } catch (SQLException e) {
+        throw new MemberException(e);
+     }
+	
+	return 0;
+}
+   
+}

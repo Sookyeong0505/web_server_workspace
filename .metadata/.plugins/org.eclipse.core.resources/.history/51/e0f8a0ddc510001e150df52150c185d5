@@ -1,0 +1,4 @@
+findById = select * from member where member_id = ?
+
+# memberId,password,name,memberRole,gender,birthday,email,phone,hobby,point,enrollDate
+enroll = insert into member values(?, ?, ?, default, ?, ?, ?, ?, ?, default. default)

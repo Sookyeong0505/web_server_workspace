@@ -1,0 +1,56 @@
+package com.sh.mvc.member.controller;
+
+import java.io.IOException;
+import java.sql.Timestamp;
+
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+import com.sh.mvc.member.model.service.MemberService;
+import com.sh.mvc.member.model.vo.Member;
+
+/**
+ * Servlet implementation class MemberEnrollServlet
+ */
+@WebServlet("/member/memberEnroll")
+public class MemberEnrollServlet extends HttpServlet {
+	private static final long serialVersionUID = 1L;
+	
+	private final MemberService memberService = new MemberService();
+       
+	
+	/**
+	 * GET /member/memberEnroll
+	 * - 회원가입 폼페이지 응답
+	 */
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		request.getRequestDispatcher("/WEB-INF/views/member/memberEnroll.jsp")
+		.forward(request, response);
+	}
+
+	/**
+	 * POST /member/memberEnroll
+	 * - DB에 회원정보 저장
+	 * - insert into member values (?, ?, ...) 
+	 * - 회원권한, 등록일 등 sql 기본값 처리
+	 */
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		// 1. 사용자 입력값 처리
+		// Member 객체로 변환
+		String memberId = request.getParameter("memberId");
+		String password = request.getParameter("password");
+		String name = request.getParameter("name");
+		Timestamp birthday = request.getParameter("birthday");
+		
+//		Member newMember = new Member(?, ?, );
+		
+		// 2. 업무로직 - db 저장 요청 (insert 요청)
+		
+		// 3. 인덱스 페이지 리다이렉트
+		
+	}
+
+}

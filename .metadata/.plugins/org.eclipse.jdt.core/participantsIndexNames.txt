@@ -3,6 +3,8 @@ C:\Workspaces\web_server_workspace\.metadata\.plugins\org.eclipse.jst.jsp.core\j
 \hello-web\src\main\java
 C:\Workspaces\web_server_workspace\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\3175126427.index
 \hello-web\src\main\java
+C:\Workspaces\web_server_workspace\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\916674617.index
+\hello-mvc\src\main\java
 C:\Workspaces\web_server_workspace\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\3291527363.index
 \hello-web\src\main\java
 C:\Workspaces\web_server_workspace\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\1544253579.index

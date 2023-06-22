@@ -33,4 +33,20 @@ public class MemberService {
       return member;
    }
    
+   public int insertMember(Member newMember) {
+	   int result =0;
+	   Connection conn = getConnection();
+	   try {
+		   result = memberDao.insertMember(conn, newMember);
+		   commit(conn);
+		
+	   } catch (Exception e) {
+		   e.printStackTrace();
+		   rollback(conn);
+	   } finally {
+		   close(conn);		   
+	   }
+	   return result; 
+   }
+   
 }
